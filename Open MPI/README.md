@@ -97,4 +97,6 @@ for (i = 0; i < 10; i++)
     printf("Time taken: %f\n", end - start);
 ```
 
+El tiempo de ejecucion para un arreglo de 100,000 elementos sin paralelizar fue de 4.42 sgs, mientras que paralelizando fue de 0.56 sgs aproximadamente.
+
 # Implementaciond de BinarySearch
