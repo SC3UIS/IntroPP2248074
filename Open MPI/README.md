@@ -39,7 +39,7 @@ int main()
     }
 ```
 
-**3)**  Se halla el numero con mayor cantidad de digitos y se computa el valor $n = 10^{maxdigits}$
+**3)**  Se halla el numero con mayor cantidad de digitos y se computa el valor $n = 10^{maxdigits-1}$, con el fin de tomar unicamente el digito de mayor valor.
 
 ```
 for (i = 0; i < count; i++) {
@@ -57,6 +57,44 @@ for (i = 0; i < count; i++) {
 
     while(--maxdigits)
         n = n * 10;
+```
+
+**4)**  Se inicializa la longitud de los "buckets" como 0 y se asignan los elementos del arreglo original a los 10 subarreglos, asegurando que cada proceso tiene su propio valor de k privado.
+
+```
+for (i = 0; i < 10; i++)
+        bucket_count[i] = 0;
+    
+    #pragma omp parallel for private(k)
+    for (i = 0; i < count; i++) {
+        k = array[i] / n;
+        #pragma omp critical
+        {
+            bucket[k][bucket_count[k]] = array[i];
+            bucket_count[k]++;
+        }
+    }
+```
+
+
+**5)**  Paraleliza la ejecucion del bucle para ordenar los 10 sub-arreglos, rearregla la lista ya ordenada e imprime el tiempo.
+
+```
+#pragma omp parallel for
+    for (i = 0; i < 10; i++) {
+        sort_bucket(bucket[i], bucket_count[i]);
+    }
+
+    k = 0;
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < bucket_count[i]; j++) {
+            array[k] = bucket[i][j];
+            k++;
+        }
+    }
+
+    double end = omp_get_wtime();
+    printf("Time taken: %f\n", end - start);
 ```
 
 # Implementaciond de BinarySearch
