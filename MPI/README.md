@@ -1,4 +1,4 @@
-# Parcial 1
+# Parcial MPI
 
 Autor: Edward Andres Sandoval Pineda 2248074
 
