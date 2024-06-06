@@ -1,0 +1,2 @@
+Key found at index 965
+Time taken: 0.026435 seconds

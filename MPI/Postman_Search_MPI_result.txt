@@ -1,0 +1,19 @@
+Process 0 - Unsorted Array:
+Process 2 - Unsorted Array:
+Process 1 - Unsorted Array:
+Process 3 - Unsorted Array:
+Process 4 - Unsorted Array:
+Process 6 - Unsorted Array:
+
+
+
+
+Process 5 - Unsorted Array:
+
+
+Process 7 - Unsorted Array:
+
+
+Sorted Array:
+
+0.0000000.0000000.0000000.0000000.0000000.0000000.0000000.000000
